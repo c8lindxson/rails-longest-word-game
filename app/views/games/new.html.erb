@@ -1,0 +1,19 @@
+<h1>-- New Game --</h1>
+
+<div class="set">
+  <% @letters.each do |letter| %>
+    <div class="letter">
+      <%= letter %>
+    </div>
+  <% end %>
+</div>
+
+
+<div class="form">
+  <form action="<%= score_path %>" method="post" data-turbo="false">
+    <label for="word">What is the longest word you can find?</label>
+    <input type="text" id="word" name="word" value="<%= params[:word] %>">
+    <input type="submit" class="btn btn-secondary" value="Submit">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  </form>
+</div>
